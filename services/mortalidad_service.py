@@ -9,3 +9,6 @@ class mortalidad_service():
 
     def getMortalidad(self):
         return self.mortalidad.get_mortalidad()
+
+    def get_average(self):
+        return self.mortalidad.get_mortalidad_average()

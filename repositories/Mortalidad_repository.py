@@ -55,3 +55,13 @@ class Mortalidad_repository():
             return cursor.fetchall()
         finally:
             self.conection.close()
+
+    def get_mortalidad_average(self,id:int):
+            try:
+                lote_quantity = self.conection.execute() 
+                cursor = self.conection.execute("SELECT COALESCE(SUM(cantidad_muertos)) * FROM mortalidad WHERE id_lote = ?" 
+                "",id)
+                return cursor.fetchall()
+
+            finally:
+                self.conection.close()
